@@ -150,6 +150,47 @@
           <!-- Images will be injected here by JS -->
         </div>
       </section>
+      <!-- TECH STACK -->
+      <section class="container tech-stack-section">
+        <h1 class="tech-stack-title">Our tech stack</h1>
+        <div class="tech-stack-flex">
+          <div class="tech-stack-item">
+            <p class="tech-stack-label">Mobile</p>
+            <img
+              src="https://res.cloudinary.com/slicepay/image/upload/v1678449612/website/sliceit/assests/careers/stack1.svg"
+              alt="Mobile"
+            />
+          </div>
+          <div class="tech-stack-item">
+            <p class="tech-stack-label">Web</p>
+            <img
+              src="https://res.cloudinary.com/slicepay/image/upload/v1678449612/website/sliceit/assests/careers/stack2.svg"
+              alt="Web"
+            />
+          </div>
+          <div class="tech-stack-item">
+            <p class="tech-stack-label">Database</p>
+            <img
+              src="https://res.cloudinary.com/slicepay/image/upload/v1678449612/website/sliceit/assests/careers/stack3.svg"
+              alt="Database"
+            />
+          </div>
+          <div class="tech-stack-item">
+            <p class="tech-stack-label">Big Data</p>
+            <img
+              src="https://res.cloudinary.com/slicepay/image/upload/v1678449612/website/sliceit/assests/careers/stack4.svg"
+              alt="Big Data"
+            />
+          </div>
+          <div class="tech-stack-item">
+            <p class="tech-stack-label">Infrastructure</p>
+            <img
+              src="https://res.cloudinary.com/slicepay/image/upload/v1678449612/website/sliceit/assests/careers/stack5.svg"
+              alt="Infrastructure"
+            />
+          </div>
+        </div>
+      </section>
     </main>
     <!-- FOOTER -->
     <footer class="footer-section">
@@ -213,11 +254,7 @@
               Work with modern web technologies to create beautiful user
               experiences.
             </p>
-            <a
-              href="mailto:careers@easybank.com?subject=Frontend Developer Application"
-              class="btn"
-              >Apply Now</a
-            >
+            <a href="#" class="btn">Apply Now</a>
           </div>
           <div class="career-item">
             <h3>Backend Developer</h3>
@@ -239,6 +276,37 @@
           </div>
         </div>
       </section>
+      <div id="career-modal" class="career-modal" style="display: none">
+        <div class="career-modal-content">
+          <span class="career-modal-close" id="career-modal-close"
+            >&times;</span
+          >
+          <h2>Apply for this Position</h2>
+          <form id="career-apply-form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              class="career-input"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              class="career-input"
+            />
+            <textarea
+              name="message"
+              placeholder="Why are you a good fit?"
+              required
+              class="career-input"
+            ></textarea>
+            <button type="submit" class="btn">Submit Application</button>
+          </form>
+        </div>
+      </div>
     </template>
 
     <script src="script.js"></script>

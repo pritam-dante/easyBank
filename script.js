@@ -1,3 +1,4 @@
+// --------- SLIDESHOW ---------
 const container = document.getElementById("slideshow-container");
 const prevBtn = container.querySelector(".prev");
 const nextBtn = container.querySelector(".next");
@@ -13,11 +14,8 @@ async function fetchImages() {
     const data = await response.json();
     slides = data.map((img) => img.urls.regular);
 
-    // Remove old images if any
-    container.querySelectorAll(".slide").forEach((img) => img.remove());
-    // Remove old error if any
-    const oldError = container.querySelector(".slide-error");
-    if (oldError) oldError.remove();
+    // Remove old images and errors
+    container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
 
     if (slides.length === 0) throw new Error("No images found");
 
@@ -35,11 +33,8 @@ async function fetchImages() {
     slideIndex = 0;
     showSlide(slideIndex);
   } catch (error) {
-    // Remove old images if any
-    container.querySelectorAll(".slide").forEach((img) => img.remove());
-    // Remove old error if any
-    const oldError = container.querySelector(".slide-error");
-    if (oldError) oldError.remove();
+    // Remove old images and errors
+    container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
 
     // Show error message
     const errorMsg = document.createElement("div");
@@ -79,35 +74,18 @@ nextBtn.addEventListener("click", nextSlide);
 
 fetchImages();
 
-// Close hamburger menu on nav link click (mobile)
-document.querySelectorAll(".nav-link a").forEach((link) => {
-  link.addEventListener("click", () => {
-    const toggle = document.getElementById("toggle");
-    if (toggle && toggle.checked) {
-      toggle.checked = false;
-    }
-    
-  });
-});
+// --------- HAMBURGER MENU CLOSE ON NAV CLICK ---------
+function closeHamburgerMenu() {
+  const toggle = document.getElementById("toggle");
+  if (toggle && toggle.checked) {
+    toggle.checked = false;
+  }
+}
 
-const requestBtn = document.querySelectorAll(".btn");
-requestBtn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Thank you for your interest! We will contact you soon");
-  });
-});
-
-
-// Optionally, handle browser back/forward navigation (basic)
-window.addEventListener("popstate", function () {
-  // You can reload the main content or handle routing here if you expand SPA features
-});
-
+// --------- SPA NAVIGATION ---------
 const mainContent = document.getElementById("main-content");
 const originalMainHTML = mainContent.innerHTML;
 
-// SPA-like navigation for Home and About
 document.querySelectorAll(".nav-link a").forEach((link) => {
   link.addEventListener("click", function (e) {
     const text = link.textContent.trim();
@@ -119,39 +97,104 @@ document.querySelectorAll(".nav-link a").forEach((link) => {
       e.preventDefault();
       mainContent.innerHTML = originalMainHTML;
       fetchImages();
+      setupRequestInviteButtons();
+      closeHamburgerMenu();
     }
 
     if (text === "About") {
       e.preventDefault();
       mainContent.innerHTML = originalMainHTML;
       fetchImages();
-      // Wait for DOM update, then scroll to About
+      setupRequestInviteButtons();
       setTimeout(() => {
         const aboutSection = document.getElementById("about-section");
         if (aboutSection) {
           aboutSection.scrollIntoView({ behavior: "smooth" });
         }
       }, 50);
+      closeHamburgerMenu();
     }
 
-    // Always close hamburger menu on nav click (mobile)
-    const toggle = document.getElementById("toggle");
-    if (toggle && toggle.checked) {
-      toggle.checked = false;
-    }
+    closeHamburgerMenu();
   });
 });
 
-// SPA-like Career page loader
+// --------- SPA-LIKE CAREER PAGE LOADER ---------
 document.getElementById("career-link").addEventListener("click", function (e) {
   e.preventDefault();
   mainContent.innerHTML = "";
   const template = document.getElementById("career-template");
   mainContent.appendChild(template.content.cloneNode(true));
+  closeHamburgerMenu();
+  setupCareerApplyModal();
+});
 
-  // Always close hamburger menu on nav click (mobile)
-  const toggle = document.getElementById("toggle");
-  if (toggle && toggle.checked) {
-    toggle.checked = false;
+// --------- CAREER MODAL & FORM ---------
+function setupCareerApplyModal() {
+  // Event delegation for "Apply Now" buttons inside careers-list
+  const careersList = document.querySelector('.careers-list');
+  if (careersList) {
+    careersList.addEventListener('click', function(e) {
+      if (e.target.classList.contains('btn')) {
+        e.preventDefault();
+        const modal = document.getElementById('career-modal');
+        if (modal) modal.style.display = 'flex';
+      }
+    });
   }
+
+  // Close modal on close button
+  const closeBtn = document.getElementById('career-modal-close');
+  if (closeBtn) {
+    closeBtn.onclick = function() {
+      document.getElementById('career-modal').style.display = 'none';
+    };
+  }
+  // Close modal when clicking outside the modal content
+  const modalBg = document.getElementById('career-modal');
+  if (modalBg) {
+    modalBg.onclick = function(e) {
+      if (e.target === modalBg) {
+        modalBg.style.display = 'none';
+      }
+    };
+  }
+
+  // Handle form submission and save to localStorage
+  const form = document.getElementById('career-apply-form');
+  if (form) {
+    form.onsubmit = function(ev) {
+      ev.preventDefault();
+      const name = form.elements['name'].value;
+      const email = form.elements['email'].value;
+      const message = form.elements['message'].value;
+      const applications = JSON.parse(localStorage.getItem('careerApplications') || '[]');
+      applications.push({ name, email, message, date: new Date().toISOString() });
+      localStorage.setItem('careerApplications', JSON.stringify(applications));
+      alert('Application submitted! Thank you.');
+      document.getElementById('career-modal').style.display = 'none';
+      form.reset();
+    };
+  }
+}
+
+// --------- REQUEST INVITE BUTTONS ---------
+function setupRequestInviteButtons() {
+ document.body.addEventListener("click", function(e) {
+  const btn = e.target.closest(".btn");
+  if (
+    btn &&
+    !btn.closest('.career-item') &&
+    !btn.closest('#career-modal')
+  ) {
+    e.preventDefault();
+    alert("Thank you for your interest! We will contact you soon");
+  }
+});
+}
+setupRequestInviteButtons();
+
+// --------- OPTIONAL: HANDLE BROWSER BACK/FORWARD ---------
+window.addEventListener("popstate", function () {
+  // You can reload the main content or handle routing here if you expand SPA features
 });
