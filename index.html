@@ -32,10 +32,10 @@
           </label>
           <ul class="nav-ul" id="nav-ul">
             <li class="nav-link"><a href="#">Home</a></li>
-            <li class="nav-link"><a href="#">About</a></li>
+            <li class="nav-link"><a href="#about-section">About</a></li>
             <li class="nav-link"><a href="#">Contact</a></li>
             <li class="nav-link"><a href="#">Blog</a></li>
-            <li class="nav-link"><a href="#">Careers</a></li>
+            <li class="nav-link"><a href="#" id="career-link">Careers</a></li>
           </ul>
           <a href="#" class="btn">Request Invite</a>
         </nav>
@@ -43,77 +43,204 @@
     </header>
 
     <!-- MAIN SECTION -->
-    <section class="welcome-section">
-      <div class="container welcome">
-        <div class="welcome-text">
-          <h1 class="u-mb-small">
-            Next Generation <span>Digital Banking</span>
-          </h1>
-          <p class="u-mb-large">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, a.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
-            alias?
-          </p>
-          <a href="#" class="btn">Request Invite</a>
+    <main id="main-content">
+      <section class="welcome-section">
+        <div class="container welcome moveUP">
+          <div class="welcome-text">
+            <h1 class="u-mb-small">
+              Next Generation <span>Digital Banking</span>
+            </h1>
+            <p class="u-mb-large">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, a.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
+              alias?
+            </p>
+            <a href="#" class="btn">Request Invite</a>
+          </div>
+          <div class="welcome-image">
+            <img src="assets/image/image-mockups.png" alt="Main image" />
+          </div>
         </div>
-        <div class="welcome-image">
-          <img src="assets/image/image-mockups.png" alt="Main image" />
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- About secton -->
-    <section class="about-section">
-      <div class="container about">
-        <div class="about-text">
-          <h2 class="u-mb-large heading-secondary">Why choose EasyBank?</h2>
-          <p class="u-mb-large">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit enim
-            tempora quaerat. Magni provident optio deserunt dolorem quam cumque
-            suscipit. Tempore, nostrum. Corrupti voluptatum veritatis vel vitae
-            dicta itaque quae?
-          </p>
+      <!-- About secton -->
+      <section class="about-section" id="about-section">
+        <div class="container about moveUP">
+          <div class="about-text">
+            <h2 class="u-mb-large heading-secondary">Why choose EasyBank?</h2>
+            <p class="u-mb-large">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
+              enim tempora quaerat. Magni provident optio deserunt dolorem quam
+              cumque suscipit. Tempore, nostrum. Corrupti voluptatum veritatis
+              vel vitae dicta itaque quae?
+            </p>
+          </div>
+          <div class="about-item">
+            <div class="about-item-box box1">
+              <img
+                src="assets/image/icon-online.svg"
+                alt="icon-online"
+                class="u-mb-small"
+              />
+              <h2 class="heading-tertiary u-mb-small">Online Banking</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+                eligendi. Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+            <div class="about-item-box box2">
+              <img
+                src="assets/image/icon-budgeting.svg"
+                alt="icon-online"
+                class="u-mb-small"
+              />
+              <h2 class="heading-tertiary u-mb-small">Simple Budgeting</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+                eligendi. Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+            <div class="about-item-box box3">
+              <img
+                src="assets/image/icon-onboarding.svg"
+                alt="icon-online"
+                class="u-mb-small"
+              />
+              <h2 class="heading-tertiary u-mb-small">Fast Onboarding</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+                eligendi. Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="about-item">
-          <div class="about-item-box box1">
-            <img
-              src="assets/image/icon-online.svg"
-              alt="icon-online"
-              class="u-mb-small"
-            />
-            <h2 class="heading-tertiary u-mb-small">Online Banking</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              eligendi. Lorem ipsum dolor sit amet consectetur.
-            </p>
-          </div>
-          <div class="about-item-box box2">
-            <img
-              src="assets/image/icon-budgeting.svg"
-              alt="icon-online"
-              class="u-mb-small"
-            />
-            <h2 class="heading-tertiary u-mb-small">Simple Budgeting</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              eligendi. Lorem ipsum dolor sit amet consectetur.
-            </p>
-          </div>
-          <div class="about-item-box box3">
-            <img
-              src="assets/image/icon-onboarding.svg"
-              alt="icon-online"
-              class="u-mb-small"
-            />
-            <h2 class="heading-tertiary u-mb-small">Fast Onboarding</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              eligendi. Lorem ipsum dolor sit amet consectetur.
-            </p>
-          </div>
+      </section>
+
+      <!-- SLIDESHOW -->
+      <section class="slideshow-section">
+        <div class="slideshow-container" id="slideshow-container">
+          <button class="prev" aria-label="Previous">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1e1e1e"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="next" aria-label="Next">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1e1e1e"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
+          </button>
+          <!-- Images will be injected here by JS -->
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer-section">
+      <div class="container footer">
+        <div class="footer-logo">
+          <img src="assets/image/logo.svg" alt="Logo" />
+        </div>
+        <div class="footer-menu">
+          <p class="u-mb-small">Features</p>
+          <ul class="footer-links">
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-menu">
+          <p class="u-mb-small">Features</p>
+          <ul class="footer-links">
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-menu">
+          <p class="u-mb-small">Features</p>
+          <ul class="footer-links">
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+            <li><a href="#">UPI</a></li>
+          </ul>
+        </div>
+        <div class="footer-icons">
+          <div class="footer-logo u-mb-large"></div>
+          <a href="#"><img src="assets/image/icon-facebook.svg" alt="" /></a>
+          <a href="#"><img src="assets/image/icon-youtube.svg" alt="" /></a>
+          <a href="#"><img src="assets/image/icon-pinterest.svg" alt="" /></a>
+          <a href="#"><img src="assets/image/icon-twitter.svg" alt="" /></a>
+          <a href="#"><img src="assets/image/icon-instagram.svg" alt="" /></a>
         </div>
       </div>
-    </section>
+      <div class="footer-copyright">
+        &copy; 2025 easyBank. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- TESTING -->
+    <template id="career-template">
+      <section class="container u-mb-large" style="text-align: center">
+        <h1 class="u-mb-medium career-heading">Join Our Team</h1>
+        <p class="u-mb-large">
+          At easyBank, we’re always looking for talented, passionate people to
+          help us build the future of digital banking.
+        </p>
+        <h2 class="u-mb-small">Open Positions</h2>
+        <div class="careers-list">
+          <div class="career-item">
+            <h3>Frontend Developer</h3>
+            <p>
+              Work with modern web technologies to create beautiful user
+              experiences.
+            </p>
+            <a
+              href="mailto:careers@easybank.com?subject=Frontend Developer Application"
+              class="btn"
+              >Apply Now</a
+            >
+          </div>
+          <div class="career-item">
+            <h3>Backend Developer</h3>
+            <p>Build scalable APIs and services for millions of users.</p>
+            <a
+              href="mailto:careers@easybank.com?subject=Backend Developer Application"
+              class="btn"
+              >Apply Now</a
+            >
+          </div>
+          <div class="career-item">
+            <h3>UI/UX Designer</h3>
+            <p>Design intuitive and delightful interfaces for our customers.</p>
+            <a
+              href="mailto:careers@easybank.com?subject=UI/UX Designer Application"
+              class="btn"
+              >Apply Now</a
+            >
+          </div>
+        </div>
+      </section>
+    </template>
+
     <script src="script.js"></script>
   </body>
 </html>
