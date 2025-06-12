@@ -1,78 +1,78 @@
 // --------- SLIDESHOW ---------
-const container = document.getElementById("slideshow-container");
-const prevBtn = container.querySelector(".prev");
-const nextBtn = container.querySelector(".next");
-let slideIndex = 0;
-let slides = [];
+// const container = document.getElementById("slideshow-container");
+// const prevBtn = container.querySelector(".prev");
+// const nextBtn = container.querySelector(".next");
+// let slideIndex = 0;
+// let slides = [];
 
-async function fetchImages() {
-  try {
-    const response = await fetch(
-      "https://api.unsplash.com/photos/random?count=5&query=bank&client_id=DRNoRxSLNTalShyDRhG0ZLFJl4bdidONcmLm1ZaHB3c"
-    );
-    if (!response.ok) throw new Error("Network response was not ok");
-    const data = await response.json();
-    slides = data.map((img) => img.urls.regular);
+// async function fetchImages() {
+//   try {
+//     const response = await fetch(
+//       "https://api.unsplash.com/photos/random?count=5&query=bank&client_id=DRNoRxSLNTalShyDRhG0ZLFJl4bdidONcmLm1ZaHB3c"
+//     );
+//     if (!response.ok) throw new Error("Network response was not ok");
+//     const data = await response.json();
+//     slides = data.map((img) => img.urls.regular);
 
-    // Remove old images and errors
-    container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
+//     // Remove old images and errors
+//     container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
 
-    if (slides.length === 0) throw new Error("No images found");
+//     if (slides.length === 0) throw new Error("No images found");
 
-    // Add new images
-    slides.forEach((src, i) => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.className = "slide";
-      img.style.display = i === 0 ? "block" : "none";
-      container.insertBefore(img, prevBtn);
-    });
+//     // Add new images
+//     slides.forEach((src, i) => {
+//       const img = document.createElement("img");
+//       img.src = src;
+//       img.className = "slide";
+//       img.style.display = i === 0 ? "block" : "none";
+//       container.insertBefore(img, prevBtn);
+//     });
 
-    prevBtn.style.display = "";
-    nextBtn.style.display = "";
-    slideIndex = 0;
-    showSlide(slideIndex);
-  } catch (error) {
-    // Remove old images and errors
-    container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
+//     prevBtn.style.display = "";
+//     nextBtn.style.display = "";
+//     slideIndex = 0;
+//     showSlide(slideIndex);
+//   } catch (error) {
+//     // Remove old images and errors
+//     container.querySelectorAll(".slide, .slide-error").forEach((el) => el.remove());
 
-    // Show error message
-    const errorMsg = document.createElement("div");
-    errorMsg.className = "slide-error";
-    errorMsg.textContent = "Failed to load images. Please try again later.";
-    errorMsg.style.color = "red";
-    errorMsg.style.textAlign = "center";
-    errorMsg.style.width = "100%";
-    container.insertBefore(errorMsg, prevBtn);
+//     // Show error message
+//     const errorMsg = document.createElement("div");
+//     errorMsg.className = "slide-error";
+//     errorMsg.textContent = "Failed to load images. Please try again later.";
+//     errorMsg.style.color = "red";
+//     errorMsg.style.textAlign = "center";
+//     errorMsg.style.width = "100%";
+//     container.insertBefore(errorMsg, prevBtn);
 
-    // Hide arrows
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-  }
-}
+//     // Hide arrows
+//     prevBtn.style.display = "none";
+//     nextBtn.style.display = "none";
+//   }
+// }
 
-function showSlide(n) {
-  const imgs = container.querySelectorAll(".slide");
-  if (imgs.length === 0) return;
-  imgs.forEach((img, i) => {
-    img.style.display = i === n ? "block" : "none";
-  });
-}
+// function showSlide(n) {
+//   const imgs = container.querySelectorAll(".slide");
+//   if (imgs.length === 0) return;
+//   imgs.forEach((img, i) => {
+//     img.style.display = i === n ? "block" : "none";
+//   });
+// }
 
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
+// function nextSlide() {
+//   slideIndex = (slideIndex + 1) % slides.length;
+//   showSlide(slideIndex);
+// }
 
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
+// function prevSlide() {
+//   slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+//   showSlide(slideIndex);
+// }
 
-prevBtn.addEventListener("click", prevSlide);
-nextBtn.addEventListener("click", nextSlide);
+// prevBtn.addEventListener("click", prevSlide);
+// nextBtn.addEventListener("click", nextSlide);
 
-fetchImages();
+// fetchImages();
 
 // --------- HAMBURGER MENU CLOSE ON NAV CLICK ---------
 function closeHamburgerMenu() {

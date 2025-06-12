@@ -547,6 +547,60 @@ nav ul li a:hover::before {
   display: block;
 }
 
+.care-section {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  /* width: 100%;
+  max-width: 120rem; */
+  margin: 0 auto;
+  background-color: var(--very-light-gray);
+}
+.care-title {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.care-flex {
+  /* width: 120%; */
+  max-width: 120rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem 3.5rem;
+  margin-bottom: 4rem;
+}
+.care-item {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 50%;
+  max-width: 40rem;
+  min-width: 18rem;
+  padding: 1.5rem 1rem 2rem 1rem;
+  margin-bottom: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.care-item img {
+  width: 6rem;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+.care-content h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.care-content p {
+  font-size: 1.4rem;
+  color: #555;
+}
+
 @media (min-width: 768px) {
   .tech-stack-flex {
     gap: 3.5rem 6rem;
