@@ -92,11 +92,12 @@ document.querySelectorAll(".nav-link a").forEach((link) => {
 
     // Careers handled separately below
     if (link.id === "career-link") return;
+    
 
     if (text === "Home") {
       e.preventDefault();
       mainContent.innerHTML = originalMainHTML;
-      fetchImages();
+      // fetchImages();
       setupRequestInviteButtons();
       closeHamburgerMenu();
     }
@@ -104,7 +105,7 @@ document.querySelectorAll(".nav-link a").forEach((link) => {
     if (text === "About") {
       e.preventDefault();
       mainContent.innerHTML = originalMainHTML;
-      fetchImages();
+      // fetchImages();
       setupRequestInviteButtons();
       setTimeout(() => {
         const aboutSection = document.getElementById("about-section");
